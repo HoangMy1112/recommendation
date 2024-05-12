@@ -1,8 +1,0 @@
-owner: nmy160665@gmail.com
-runtimeInfo:
-  mainFunction: double_number
-  mainFunctionArgs:
-    - num:float
-    - return:float
-  pythonVersion: '3.9'
-schemaVersion: 2
