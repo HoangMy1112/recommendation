@@ -2,6 +2,10 @@ from app.dynamo import DynamoDBQuery
 import pandas as pd
 from app.models.collaborative_filtering import MatrixFactorization
 import modelbit
+import os
+
+os.environ["AWS_ACCESS_KEY_ID"] = "AKIA5HPKATSKPD7NFGAS"
+os.environ["AWS_SECRET_ACESS_KEY"] = "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"
 
 def recommend():
     combined_data = []
