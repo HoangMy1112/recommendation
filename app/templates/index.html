@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation System</title>
+</head>
+<body>
+    <h1>Recommendation System</h1>
+    <form id="myForm" >
+        user_id : <input type="text" name="user_id" value="A10E3QH2FQUBLF"><br>
+        top_n : <input type="number" name="top_n" value=5><br>
+    </form>
+    <input type="button" value="Submit" onclick="submitUsingFetch()">
+    <p id="resp"></p>
+    <div id="result"></div>
+
+    <script>
+
+        function reset() {
+            var resp = document.getElementById("resp");
+            resp.innerHTML = "";
+            resp.style.color = "black";
+        }
+
+        function submitUsingFetch() {
+            var resp = document.getElementById("resp");
+            var fileInput = document.getElementById('fileInput');
+                var formData = new FormData();
+
+                var myForm = document.getElementById('myForm');
+                var qs = new URLSearchParams(new FormData(myForm)).toString();
+                fetch('/upload?' + qs, {
+                        method: 'POST',
+                        body: formData,
+                    })
+                .then(response => response.json())
+                .then(data => {
+                    resp.innerHTML = `<p>Recommendations for user '${data.user_id}': ${data.recommendations.join(', ')}</p>`;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                }); 
+        }
+    </script>
+</body>
+</html>
