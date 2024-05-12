@@ -1,0 +1,8 @@
+backends:
+  split_1:
+    deployment:
+      branch: main
+      name: filtering_deployment
+      version: 6
+    weight: 1
+schemaVersion: 1
