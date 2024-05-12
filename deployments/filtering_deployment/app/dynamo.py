@@ -61,13 +61,13 @@
 
 import boto3
 from boto3.dynamodb.conditions import Key
-import os
-os.environ["AWS_ACCESS_KEY_ID"] = "AKIA5HPKATSKPD7NFGAS"
-os.environ["AWS_SECRET_ACESS_KEY"] = "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"
-
 class DynamoDBQuery:
     def __init__(self, region_name, table_name):
-        self.dynamodb = boto3.resource("dynamodb", region_name=region_name)
+        self.dynamodb = boto3.resource("dynamodb", 
+                                       aws_access_key_id="AKIA5HPKATSKPD7NFGAS",
+                                       aws_secret_access_key="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",
+                                       region_name=region_name
+                                       )
         self.table = self.dynamodb.Table(table_name)
 
     def query_items(self, partition_key_value):
