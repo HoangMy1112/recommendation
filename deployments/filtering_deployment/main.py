@@ -1,10 +1,7 @@
 from app.dynamo import DynamoDBQuery
 import pandas as pd
-import json
 from app.models.collaborative_filtering import MatrixFactorization
-import os
 import modelbit
-
 
 def recommend():
     combined_data = []

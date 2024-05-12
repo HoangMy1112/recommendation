@@ -1,0 +1,5 @@
+owner: nhm8606@gmail.com
+runtimeInfo:
+  mainFunction: recommend
+  pythonVersion: "3.9"
+schemaVersion: 2
