@@ -35,6 +35,3 @@ def recommend():
         print(f"An error occurred: {e}")
         return {"error": str(e)}
     
-mb = modelbit.login()
-
-mb.deploy(recommend)
