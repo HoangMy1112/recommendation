@@ -61,9 +61,14 @@
 
 import boto3
 from boto3.dynamodb.conditions import Key
+import modelbit as mb 
 class DynamoDBQuery:
     def __init__(self, region_name, table_name):
+        aws_access_key_id = mb.get_secret("AWS_ACCESS_KEY_ID")
+        aws_secret_access_key = mb.get_secret("AWS_SECRET_ACCESS_KEY")
         self.dynamodb = boto3.resource("dynamodb", 
+                                       aws_access_key_id=aws_access_key_id,
+                                       aws_secret_access_key=aws_secret_access_key,
                                        region_name=region_name
                                        )
         self.table = self.dynamodb.Table(table_name)
@@ -113,13 +118,13 @@ class DynamoDBQuery:
 
         return self.merge_results(users, places, posts)
 
-# if __name__ == "__main__":
-#     query = DynamoDBQuery(region_name="ap-southeast-2", table_name="nc-table")
-#     try:
-#         result = query.execute_query()
-#         print(result)
-#     except Exception as e:
-#         print(f"An error occurred: {e}")
+if __name__ == "__main__":
+    query = DynamoDBQuery(region_name="ap-southeast-2", table_name="nc-table")
+    try:
+        result = query.execute_query()
+        print(result)
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 
 # import boto3
