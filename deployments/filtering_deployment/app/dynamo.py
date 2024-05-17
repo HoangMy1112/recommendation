@@ -64,8 +64,6 @@ from boto3.dynamodb.conditions import Key
 class DynamoDBQuery:
     def __init__(self, region_name, table_name):
         self.dynamodb = boto3.resource("dynamodb", 
-                                       aws_access_key_id="AKIA5HPKATSKF6Z37DJ3",
-                                       aws_secret_access_key="U7HtkAk6r30htxEnOXC1SHk49VWRD0ymIgfvuei",
                                        region_name=region_name
                                        )
         self.table = self.dynamodb.Table(table_name)
